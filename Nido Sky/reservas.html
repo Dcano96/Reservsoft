@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva de Apartamentos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      body {
+        background-image: url(./img/imagen-2.png);
+        background-size: cover;
+        background-position: center;
+        color: white; /* blanco para el texto */
+        padding-top: 60px; /* Ajuste para barra de navegación fija */
+      }
+
+      .navbar {
+        background-color: #000000; /* Negro para la barra de navegación */
+      }
+
+      .navbar-light .navbar-brand,
+      .navbar-light .nav-link {
+        color: #e08709; /* Naranja específico para el texto de la barra de navegación */
+      }
+
+      .nav-link {
+        color: #e08709; /* Naranja específico para los enlaces */
+      }
+
+      .nav-link.active {
+        background-color: #333; /* Negro para el enlace activo */
+      }
+
+      .btn-primary {
+        background-color: #e08709; /* Naranja para los botones principales */
+        border-color: #e08709;
+        color: white; /* Blanco para el texto de los botones */
+      }
+
+      .btn-secondary {
+        background-color: #e08709; /* Naranja para el botón de cancelar */
+        border-color: #e08709;
+        color: white; /* Blanco para el texto de los botones secundarios */
+      }
+
+      .btn-outline-primary {
+        color: white; /* Blanco para el texto de los botones de agregar */
+        background-color: #e08709;
+        border: #e08709;
+      }
+
+      .table th {
+        background-color: #e08709; /* Naranja para el encabezado de la tabla */
+        color: #333; /* Gris oscuro para el texto */
+      }
+
+      .table td {
+        background-color: white; /* Blanco para el fondo de la tabla */
+      }
+
+      .btn-icon {
+        color: #e08709; /* Naranja específico para el texto de los botones */
+        background: transparent; /* Fondo transparente para el botón */
+        border: none; /* Sin borde */
+        font-size: 1.5rem; /* Tamaño de fuente adecuado */
+        padding: 0.5rem; /* Espaciado interno */
+        cursor: pointer; /* Cursor de puntero */
+      }
+
+      .btn-icon:hover {
+        color: #e08709; /* Naranja más oscuro al pasar el ratón sobre el botón */
+      }
+
+      .btn-icon-edit {
+        color: #e08709; /* Naranja para editar */
+      }
+
+      .btn-icon-edit:hover {
+        color: #e08709; /* Naranja más oscuro al pasar el ratón */
+      }
+
+      .btn-icon-delete {
+        color: #e08709; /* Naranja para eliminar */
+      }
+
+      .btn-icon-delete:hover {
+        color: #e08709; /* Naranja más oscuro al pasar el ratón */
+      }
+
+      .btn-icon-add {
+        color: #e08709; /* Naranja para agregar */
+      }
+
+      .btn-icon-add:hover {
+        color: #e08709; /* Naranja más oscuro al pasar el ratón */
+      }
+
+      .btn-icon-close-session {
+        color: #e08709; /* Naranja específico para el botón de cerrar sesión */
+        font-size: 20px;
+        border: none;
+        background: none;
+      }
+
+      .form-container {
+        border: 1px solid #e08709; /* Borde naranja */
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .navbar-brand {
+        flex: 1;
+        text-align: center;
+        color: #e08709; /* Naranja específico para el texto de la barra de navegación */
+      }
+
+      .navbar-nav {
+        margin-left: auto;
+      }
+
+      .navbar-nav .nav-item {
+        margin-left: 10px;
+      }
+
+      .navbar-nav .nav-link {
+        color: #e08709;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <h1>Reserva de Apartamentos</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <!-- Menú de navegación -->
+            <li class="nav-item">
+              <a class="nav-link" href="./apartamentos.html">Apartamentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Descuentos.html">Descuentos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Reserva
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="./Hospedaje.html">Detalles de Hospedaje</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Perfil</a>
+            </li>
+          </ul>
+          <form class="d-flex ms-3">
+            <button
+              class="btn-icon-close-session"
+              type="button"
+              id="btnCerrarSesion"
+            >
+              <i class="bi bi-box-arrow-right"></i>
+              <!-- Icono de cerrar sesión -->
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+      <!-- Contenido de la página -->
+      <div class="row">
+        <div class="col-md-12 p-4">
+          <div class="row">
+            <!-- Formulario de cliente -->
+            <div class="col-md-6">
+              <h5>Datos del Cliente</h5>
+              <form id="form-cliente">
+                <!-- Campo de nombre: Obligatorio -->
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    required
+                    pattern="[a-zA-Z\s]+"
+                    title="Solo se permiten letras y espacios."
+                  />
+                </div>
+
+                <!-- Campo de apellido: Obligatorio -->
+                <div class="mb-3">
+                  <label for="apellido" class="form-label">Apellido</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="apellido"
+                    required
+                    pattern="[a-zA-Z\s]+"
+                    title="Solo se permiten letras y espacios."
+                  />
+                </div>
+
+                <!-- Tipo de documento: Obligatorio -->
+                <div class="mb-3">
+                  <label for="tipoDoc" class="form-label"
+                    >Tipo de documento</label
+                  >
+                  <select class="form-select" id="tipoDoc" required>
+                    <option value="">Seleccione un tipo de documento</option>
+                    <option value="CC">C.C</option>
+                    <option value="TI">T.I</option>
+                    <option value="PP">P.P</option>
+                  </select>
+                </div>
+
+                <!-- Número de documento: Obligatorio, mínimo 5 caracteres -->
+                <div class="mb-3">
+                  <label for="numDoc" class="form-label">N° Documento</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="numDoc"
+                    required
+                    minlength="5"
+                  />
+                </div>
+
+                <!-- Teléfono: Obligatorio, solo números -->
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="telefono"
+                    required
+                  />
+                </div>
+
+                <!-- Correo electrónico: Obligatorio, debe tener formato de correo -->
+                <div class="mb-3">
+                  <label for="correo" class="form-label"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="correo"
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+
+            <!-- Formulario de reserva -->
+            <div class="col-md-6">
+              <h5>Datos de Reserva</h5>
+              <form id="form-reserva">
+                <!-- Número de Reserva: Obligatorio -->
+                <div class="mb-3">
+                  <label for="numReserva" class="form-label">N° Reserva</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="numReserva"
+                    required
+                  />
+                </div>
+
+                <!-- Fecha de Reserva: Obligatorio -->
+                <div class="mb-3">
+                  <label for="fechaReserva" class="form-label"
+                    >Fecha de reserva</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaReserva"
+                    required
+                  />
+                </div>
+
+                <!-- Fecha Desde: Obligatorio -->
+                <div class="mb-3">
+                  <label for="fechaDesde" class="form-label">Desde</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaDesde"
+                    required
+                  />
+                </div>
+
+                <!-- Fecha Hasta: Obligatorio -->
+                <div class="mb-3">
+                  <label for="fechaHasta" class="form-label">Hasta</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaHasta"
+                    required
+                  />
+                </div>
+                <!-- Comprobante de pago: Obligatorio -->
+                <div class="mb-3">
+                  <label for="comprobante" class="form-label"
+                    >Comprobante de pago</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="comprobante"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Hecho!</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="btnCancelarReserva"
+                >
+                  Cancelar
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Apartamentos -->
+          <div class="row mt-4">
+            <h5>Apartamentos</h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">T.Apto</th>
+                  <th scope="col">N°Apto</th>
+                  <th scope="col">Capacidad</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A</td>
+                  <td>101</td>
+                  <td>4</td>
+                  <td>
+                    <button class="btn-icon btn-icon-edit" id="btnEditar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-delete" id="btnEliminar">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-add" id="btnAgregar">
+                      <i class="bi bi-plus-circle"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-outline-primary" id="btnAgregarApto">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("btnCerrarSesion")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "¿Está seguro?",
+            text: "¿Desea cerrar sesión?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#ff6f00",
+            cancelButtonColor: "#333",
+            confirmButtonText: "Sí, cerrar sesión",
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Aquí puedes redirigir a la página de cierre de sesión o realizar la acción deseada
+              Swal.fire("¡Cerrado!", "Has cerrado sesión.", "success");
+            }
+          });
+        });
+
+      document
+        .getElementById("btnCancelarReserva")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "¿Está seguro?",
+            text: "¿Desea cancelar la reserva?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#ff6f00",
+            cancelButtonColor: "#333",
+            confirmButtonText: "Sí, cancelar",
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Aquí puedes limpiar el formulario o realizar otras acciones
+              Swal.fire(
+                "¡Cancelado!",
+                "La reserva ha sido cancelada.",
+                "success"
+              );
+            }
+          });
+        });
+
+      document
+        .getElementById("btnAgregarApto")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "Agregar Apartamento",
+            text: "¿Desea agregar un nuevo apartamento?",
+            icon: "info",
+            confirmButtonColor: "#ff6f00",
+            confirmButtonText: "Sí, agregar",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Aquí puedes mostrar el formulario de agregar apartamento o realizar la acción deseada
+              Swal.fire(
+                "¡Agregado!",
+                "El apartamento ha sido agregado.",
+                "success"
+              );
+            }
+          });
+        });
+
+      document
+        .getElementById("btnEditar")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "Editar Apartamento",
+            text: "¿Desea editar este apartamento?",
+            icon: "info",
+            confirmButtonColor: "#ff6f00",
+            confirmButtonText: "Sí, editar",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Aquí puedes mostrar el formulario de edición o realizar la acción deseada
+              Swal.fire(
+                "¡Editado!",
+                "El apartamento ha sido editado.",
+                "success"
+              );
+            }
+          });
+        });
+
+      document
+        .getElementById("btnEliminar")
+        .addEventListener("click", function () {
+          Swal.fire({
+            title: "Eliminar Apartamento",
+            text: "¿Está seguro de que desea eliminar este apartamento?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#ff6f00",
+            cancelButtonColor: "#333",
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Aquí puedes realizar la acción de eliminación o actualizar la tabla
+              Swal.fire(
+                "¡Eliminado!",
+                "El apartamento ha sido eliminado.",
+                "success"
+              );
+            }
+          });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

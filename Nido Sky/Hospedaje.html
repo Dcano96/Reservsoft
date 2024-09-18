@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./img/nidosky.png" type="image/x-icon" />
+    <title>Reserva</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalizeo.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/Hospedaje.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+   
+    <style>.site-header {
+        background-color: #161616;
+        padding: 1rem 0 3rem 0;
+      } </style>
+
+<header class="site-header">
+    <div class="contenedor contenido-header">
+      <div class="barra">
+        <h1>Elegante refugio</h1>
+        <img src="./img/nidosky.png" alt="" height="80rem" />
+        <div class="mobile-menu">
+          <a href="#navegacion">
+            <img src="img/barras.svg" alt="Icono Menu" />
+          </a>
+        </div>
+
+        <nav id="navegacion" class="navegacion">
+          <a href="nosotros.html">Nosotros</a>
+          <a href="./apartamentos.html">Apartamentos</a>
+          <a href="./Descuentos.html">Descuentos</a>
+          <a href="Hospedaje.html">Hospedaje</a>
+          <a href="reservas.html">Reserva</a> 
+        </nav>
+      </div>
+    </div>
+    <!-- contenedor -->
+  </header>
+
+    <main class="formulario-reserva">
+        <!-- Resumen de la Reserva -->
+        <div class="formulario-resumen">
+            <h3>Resumen de Reserva</h3>
+            <table class="tabla-resumen">
+                <thead>
+                    <tr>
+                        <th>Tipo de Apartamento</th>
+                        <th>Número de Apartamento</th>
+                        <th>Capacidad</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tipo 1</td>
+                        <td>201</td>
+                        <td>2 Adultos, 1 Niño</td>
+                        <td>01/10/2024</td>
+                        <td>05/10/2024</td>
+                        <td>
+                            <a href="./Addpersona.html" class="boton-agregar-persona">
+                                <i class="fas fa-user-plus"></i>
+                            </a>
+                            <a href="./check-in.html" class="boton-checkin">
+                                <i class="fas fa-check"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Formularios -->
+        <div class="formularios-container">
+            <!-- Formulario de Detalles de Hospedaje -->
+            <div class="formulario-hospedaje">
+                <h2>Detalles De Hospedaje</h2>
+                <form action="#" method="post">
+                    <table class="tabla-formulario">
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="apellido">Apellido:</label></td>
+                            <td><input type="text" id="apellido" name="apellido" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="tipo-documento">Tipo de Documento:</label></td>
+                            <td>
+                                <select id="tipo-documento" name="tipo-documento" required>
+                                    <option value="cedula">Cédula</option>
+                                    <option value="pasaporte">Pasaporte</option>
+                                    <option value="ti">T.I</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="numero-documento">Número de Documento:</label></td>
+                            <td><input type="text" id="numero-documento" name="numero-documento" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="telefono">Teléfono:</label></td>
+                            <td><input type="tel" id="telefono" name="telefono" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="correo">Correo Electrónico:</label></td>
+                            <td><input type="email" id="correo" name="correo" required /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <!-- Formulario de Detalles del Apartamento -->
+            <div class="formulario-detalles">
+                <style>
+                    h3 {
+  font-size: 3rem;
+  color: #e08709;
+}
+                </style>
+                <h3>Detalles del Apartamento</h3>
+                <form>
+                    <table class="tabla-detalles">
+                        <tr>
+                            <td><label for="fecha-entrada">Fecha de Entrada:</label></td>
+                            <td><input type="date" id="fecha-entrada" name="fecha-entrada" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="fecha-salida">Fecha de Salida:</label></td>
+                            <td><input type="date" id="fecha-salida" name="fecha-salida" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="adultos">Adultos:</label></td>
+                            <td>
+                                <div class="contador">
+                                    <button type="button" class="decrementar">-</button>
+                                    <input type="number" id="adultos" name="adultos" min="1" value="1" required />
+                                    <button type="button" class="incrementar">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="ninos">Niños:</label></td>
+                            <td>
+                                <div class="contador">
+                                    <button type="button" class="decrementar">-</button>
+                                    <input type="number" id="ninos" name="ninos" min="0" value="0" required />
+                                    <button type="button" class="incrementar">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="tipo-apartamento">Tipo de Apartamento:</label></td>
+                            <td>
+                                <select id="tipo-apartamento" name="tipo-apartamento" required>
+                                    <option value="tipo1">Apartamento Tipo 1</option>
+                                    <option value="tipo2">Apartamento Tipo 2</option>
+                                    <option value="penthouse">Penthouse</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="numero-apartamento">Número de Apartamento:</label></td>
+                            <td>
+                                <div class="input-icon-container">
+                                    <select id="numero-apartamento" name="numero-apartamento" required>
+                                        <option value="201">201</option>
+                                        <option value="202">202</option>
+                                        <option value="203">203</option>
+                                        <option value="204">204</option>
+                                        <option value="301">301</option>
+                                        <option value="302">302</option>
+                                        <option value="303">303</option>
+                                        <option value="304">304</option>
+                                    </select>
+                                    <a href="./Addapto.html" class="boton-adicionar">
+                                        <i class="fas fa-plus"></i> Adicionar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    
+   
+    
+    <footer class="site-footer">
+    <style>
+        .site-footer {
+  background-color: #0e0d0d;
+  margin: 0;
+}
+    </style>
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="apartamentos.html">Apartamentos</a>
+                <a href="Descuentos.html">Descuentos</a>
+                <a href="Hospedaje.html">Hospedaje</a>
+                <a href="reservas.html">Reserva</a>
+            </nav>
+            <p class="copyright">Nido Sky 2024 &copy;</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* Estilos Generales */
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedor {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navegacion a {
+  margin: 0 10px;
+}
+
+/* Encabezado */
+.site-header {
+  background: #f4f4f4;
+  padding: 20px 0;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.barra h1 {
+  margin-right: 20rem;
+  font-size: 4rem;
+  
+}
+
+.barra img {
+  height: 80px;
+}
+
+/* Formularios */
+.formulario-reserva {
+  margin: 20px 0;
+}
+
+.formularios-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formulario-hospedaje,
+.formulario-detalles {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.tabla-formulario,
+.tabla-detalles {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-formulario td,
+.tabla-detalles td {
+  padding: 10px;
+}
+
+.tabla-formulario input,
+.tabla-detalles input,
+.tabla-formulario select,
+.tabla-detalles select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+}
+
+.decrementar,
+.incrementar {
+  border: 1px solid #ddd;
+  padding: 5px;
+  cursor: pointer;
+  background: #f4f4f4;
+}
+
+.decrementar {
+  border-radius: 5px 0 0 5px;
+}
+
+.incrementar {
+  border-radius: 0 5px 5px 0;
+}
+
+.input-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.boton-adicionar {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.boton-adicionar i {
+  margin-right: 5px;
+}
+
+/* Resumen */
+.formulario-resumen {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.tabla-resumen {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-resumen th,
+.tabla-resumen td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.boton-agregar-persona,
+.boton-checkin {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.boton-agregar-persona i,
+.boton-checkin i {
+  margin-right: 5px;
+}
+
+/* Footer */
+.site-footer {
+  background: #f4f4f4;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.navegacion a {
+  margin: 0 10px;
+}
+
+.copyright {
+  margin: 10px 0 0;
+}

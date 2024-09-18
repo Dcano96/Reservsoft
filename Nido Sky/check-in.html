@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./img/nidosky.png" type="image/x-icon" />
+    <title>Reserva</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalizeo.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/checkin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <h1>Elegante refugio</h1>
+                <img src="./img/nidosky.png" alt="Logo" height="80rem" />
+                <nav id="navegacion" class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="./apartamentos.html">Apartamentos</a>
+                <a href="./Descuentos.html">Descuentos</a>
+                    <a href="Hospedaje.html">Hospedaje</a>
+                    <a href="reservas.html">Reserva</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+   
+    <main>
+        <!-- Formulario de Check-In -->
+        <section class="formulario-checkin">
+            <h1>Formulario de Check-In</h1>
+            <form id="form-checkin">
+                <table id="tabla-checkin">
+                    <thead>
+                        <tr>
+                            <th>Servicios</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Observaciones</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas para diferentes servicios -->
+                        <tr>
+                            <td>Habitaciones</td>
+                            <td><input type="checkbox" name="habitaciones-checkin"></td>
+                            <td><input type="checkbox" name="habitaciones-checkout"></td>
+                            <td><input type="text" name="habitaciones-observaciones"></td>
+                            <td>
+                                <select name="habitaciones-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cocina</td>
+                            <td><input type="checkbox" name="cocina-checkin"></td>
+                            <td><input type="checkbox" name="cocina-checkout"></td>
+                            <td><input type="text" name="cocina-observaciones"></td>
+                            <td>
+                                <select name="cocina-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Wifi</td>
+                            <td><input type="checkbox" name="wifi-checkin"></td>
+                            <td><input type="checkbox" name="wifi-checkout"></td>
+                            <td><input type="text" name="wifi-observaciones"></td>
+                            <td>
+                                <select name="wifi-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Aire Acondicionado</td>
+                            <td><input type="checkbox" name="aire-acondicionado-checkin"></td>
+                            <td><input type="checkbox" name="aire-acondicionado-checkout"></td>
+                            <td><input type="text" name="aire-acondicionado-observaciones"></td>
+                            <td>
+                                <select name="aire-acondicionado-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Baño</td>
+                            <td><input type="checkbox" name="bano-checkin"></td>
+                            <td><input type="checkbox" name="bano-checkout"></td>
+                            <td><input type="text" name="bano-observaciones"></td>
+                            <td>
+                                <select name="bano-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Camas</td>
+                            <td><input type="checkbox" name="camas-checkin"></td>
+                            <td><input type="checkbox" name="camas-checkout"></td>
+                            <td><input type="text" name="camas-observaciones"></td>
+                            <td>
+                                <select name="camas-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sofá Cama</td>
+                            <td><input type="checkbox" name="sofa-cama-checkin"></td>
+                            <td><input type="checkbox" name="sofa-cama-checkout"></td>
+                            <td><input type="text" name="sofa-cama-observaciones"></td>
+                            <td>
+                                <select name="sofa-cama-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Televisor</td>
+                            <td><input type="checkbox" name="televisor-checkin"></td>
+                            <td><input type="checkbox" name="televisor-checkout"></td>
+                            <td><input type="text" name="televisor-observaciones"></td>
+                            <td>
+                                <select name="televisor-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lavadora</td>
+                            <td><input type="checkbox" name="lavadora-checkin"></td>
+                            <td><input type="checkbox" name="lavadora-checkout"></td>
+                            <td><input type="text" name="lavadora-observaciones"></td>
+                            <td>
+                                <select name="lavadora-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Secadora</td>
+                            <td><input type="checkbox" name="secadora-checkin"></td>
+                            <td><input type="checkbox" name="secadora-checkout"></td>
+                            <td><input type="text" name="secadora-observaciones"></td>
+                            <td>
+                                <select name="secadora-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bañera</td>
+                            <td><input type="checkbox" name="banera-checkin"></td>
+                            <td><input type="checkbox" name="banera-checkout"></td>
+                            <td><input type="text" name="banera-observaciones"></td>
+                            <td>
+                                <select name="banera-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nevera</td>
+                            <td><input type="checkbox" name="nevera-checkin"></td>
+                            <td><input type="checkbox" name="nevera-checkout"></td>
+                            <td><input type="text" name="nevera-observaciones"></td>
+                            <td>
+                                <select name="nevera-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Licuadora</td>
+                            <td><input type="checkbox" name="licuadora-checkin"></td>
+                            <td><input type="checkbox" name="licuadora-checkout"></td>
+                            <td><input type="text" name="licuadora-observaciones"></td>
+                            <td>
+                                <select name="licuadora-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Plancha</td>
+                            <td><input type="checkbox" name="plancha-checkin"></td>
+                            <td><input type="checkbox" name="plancha-checkout"></td>
+                            <td><input type="text" name="plancha-observaciones"></td>
+                            <td>
+                                <select name="plancha-estado">
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no-disponible">No Disponible</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit">¡Hecho!</button>
+            </form>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="contenedor contenedor-footer">
+            <nav id="navegacion" class="navegacion">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="./apartamentos.html">Apartamentos</a>
+                <a href="./Descuentos.html">Descuentos</a>
+                <a href="Hospedaje.html">Hospedaje</a>
+                <a href="reservas.html">Reserva</a>
+            </nav>
+            <p class="copyright">Nido Sky 2024 &copy;</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('form-checkin').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+            alert('¡Check-in exitoso!'); // Mostrar mensaje
+        });
+    </script>
+</body>
+</html>

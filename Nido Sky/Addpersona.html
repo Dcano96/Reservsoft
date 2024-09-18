@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./img/nidosky.png" type="image/x-icon" />
+    <title>Agregar Acompañantes</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="css/normalizeo.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/addpersona.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <h1>Elegante refugio</h1>
+                <img src="./img/nidosky.png" alt="Logo" height="80rem" />
+                <nav id="navegacion" class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="./apartamentos.html">Apartamentos</a>
+                    <a href="./Descuentos.html">Descuentos</a>
+                    <a href="Hospedaje.html">Hospedaje</a>
+                    <a href="reservas.html">Reserva</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Formulario para agregar acompañantes -->
+        <section class="formulario-agregar">
+            <h2>Acompañantes</h2>
+            <form id="form-acompanantes">
+                <table class="form-table">
+                    <tr>
+                        <td><label for="nombre">Nombre:</label></td>
+                        <td><input type="text" id="nombre" name="nombre" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="apellido">Apellido:</label></td>
+                        <td><input type="text" id="apellido" name="apellido" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tipo-documento">Tipo de Documento:</label></td>
+                        <td>
+                            <select id="tipo-documento" name="tipo-documento" required>
+                                <option value="cedula">Cédula</option>
+                                <option value="pasaporte">Pasaporte</option>
+                                <option value="ti">T.I</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="numero-documento">Número de Documento:</label></td>
+                        <td><input type="text" id="numero-documento" name="numero-documento" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fecha-nacimiento">Fecha de Nacimiento:</label></td>
+                        <td><input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required></td>
+                    </tr>
+                </table>
+                <button type="button" id="btn-agregar" class="btn-agregar">Agregar</button>
+            </form>
+        </section>
+
+        <!-- Tabla para mostrar acompañantes agregados -->
+        <section class="tabla-acompanantes">
+            <h4>Acompañantes Agregados</h4>
+            <table id="tabla-acompanantes">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Tipo de Documento</th>
+                        <th>Número de Documento</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se agregarán dinámicamente aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav id="navegacion" class="navegacion">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="./apartamentos.html">Apartamentos</a>
+            <a href="./Descuentos.html">Descuentos</a>
+            <a href="Hospedaje.html">Hospedaje</a>
+            <a href="reservas.html">Reserva</a>
+        </nav>
+            <p class="copyright">© 2024 Elegante refugio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tablaAcompanantes = document.getElementById('tabla-acompanantes').getElementsByTagName('tbody')[0];
+            const formAcompanantes = document.getElementById('form-acompanantes');
+            const btnAgregar = document.getElementById('btn-agregar');
+            
+            // Function to add a new companion to the table
+            function agregarAcompanante() {
+                const nombre = formAcompanantes['nombre'].value;
+                const apellido = formAcompanantes['apellido'].value;
+                const tipoDocumento = formAcompanantes['tipo-documento'].value;
+                const numeroDocumento = formAcompanantes['numero-documento'].value;
+                const fechaNacimiento = formAcompanantes['fecha-nacimiento'].value;
+
+                const row = tablaAcompanantes.insertRow();
+                row.innerHTML = `
+                    <td><input type="text" value="${nombre}" readonly /></td>
+                    <td><input type="text" value="${apellido}" readonly /></td>
+                    <td><input type="text" value="${tipoDocumento}" readonly /></td>
+                    <td><input type="text" value="${numeroDocumento}" readonly /></td>
+                    <td><input type="text" value="${fechaNacimiento}" readonly /></td>
+                    <td>
+                        <button class="btn-editar">Editar</button>
+                        <button class="btn-eliminar">Eliminar</button>
+                        <button class="btn-check">Confirmar</button>
+                    </td>
+                `;
+            }
+
+            // Function to enable editing for a specific row
+            function habilitarEdicion(row) {
+                const inputs = row.querySelectorAll('input');
+                inputs.forEach(input => input.removeAttribute('readonly'));
+                row.querySelector('.btn-check').style.display = 'inline-block'; // Show check button
+            }
+
+            // Function to confirm the changes made to a row
+            function confirmarCambios(row) {
+                const inputs = row.querySelectorAll('input');
+                inputs.forEach(input => input.setAttribute('readonly', 'readonly'));
+                row.querySelector('.btn-check').style.display = 'none'; // Hide check button
+            }
+
+            // Function to remove a row from the table
+            function eliminarFila(row) {
+                row.remove();
+            }
+
+            // Event listener for the "Agregar" button
+            btnAgregar.addEventListener('click', agregarAcompanante);
+
+            // Event delegation for edit, delete, and confirm buttons
+            tablaAcompanantes.addEventListener('click', function (e) {
+                if (e.target.classList.contains('btn-editar')) {
+                    habilitarEdicion(e.target.closest('tr'));
+                } else if (e.target.classList.contains('btn-check')) {
+                    confirmarCambios(e.target.closest('tr'));
+                } else if (e.target.classList.contains('btn-eliminar')) {
+                    eliminarFila(e.target.closest('tr'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
